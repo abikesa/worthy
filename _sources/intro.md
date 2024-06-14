@@ -41,7 +41,7 @@ jama/
 ```
 
 ```bash
-# jama/pre_build.sh && jb build jama && jama/post_build.sh && jama/jbb_https.sh
+# jama/pre_build.sh && jb build jama && jama/post_build.sh && new/jbb_https.sh
 git clone https://github.com/abikesa/workflow && mv workflow new && new/setup_myenv.sh && source myenv/bin/activate 
 ```
 
