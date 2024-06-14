@@ -37,7 +37,7 @@ jama/
 ├── chapter8.md
 ├── intro.md
 ├── README.md
-└── requirements.txt
+└── requirements.txts
 ```
 
 ```bash
