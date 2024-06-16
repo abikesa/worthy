@@ -525,15 +525,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-myenv-sh">41 <code class="docutils literal notranslate"><span class="pre">setup_myenv.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-config-global-http-sslverify-false">42 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">http.sslVerify</span> <span class="pre">false</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-sphinx-5-0-6-0">43 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"sphinx&gt;=5.0,&lt;6.0"</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">44</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jb-build">44 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jb</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jupyter-book-build"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying">Deploying</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-netlify">On Netlify</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiki-style-jb">45 <code class="docutils literal notranslate"><span class="pre">wiki-style</span> <span class="pre">jb</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -3156,8 +3157,8 @@ Ensure your Git version is up-to-date. You can download the latest version from 
 </div>
 <p>If further adjustments are needed, please let me know.</p>
 </section>
-<section id="id11">
-<h2>44<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="pip-install-r-requirements-txt-jb-build">
+<h2>44 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jb</span> <span class="pre">build</span> <span class="pre">.</span></code><a class="headerlink" href="#pip-install-r-requirements-txt-jb-build" title="Link to this heading">#</a></h2>
 <section id="pip-install-r-requirements-txt-jupyter-book-build">
 <h3><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code><a class="headerlink" href="#pip-install-r-requirements-txt-jupyter-book-build" title="Link to this heading">#</a></h3>
 <section id="deploying">
@@ -3187,14 +3188,42 @@ jupyter-book<span class="w"> </span>build<span class="w"> </span>.
 </div>
 </section>
 </section>
-<section id="id12">
-<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>credential-cache<span class="w"> </span><span class="nb">exit</span>
 <span class="nb">cd</span><span class="w"> </span>home/book/website
 git<span class="w"> </span>add<span class="w"> </span>./*
 </pre></div>
 </div>
 </section>
+</section>
+<section id="wiki-style-jb">
+<h2>45 <code class="docutils literal notranslate"><span class="pre">wiki-style</span> <span class="pre">jb</span></code><a class="headerlink" href="#wiki-style-jb" title="Link to this heading">#</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># myenv</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abikesa/workflow<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>workflow<span class="w"> </span>new<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>new/setup_myenv.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>myenv/bin/activate<span class="w"> </span>
+
+<span class="c1"># template</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/the-turing-way/the-turing-way
+mv<span class="w"> </span>the-turing-way<span class="w"> </span>kenny
+<span class="nb">cd</span><span class="w"> </span>kenny/book/website
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="c1"># error message</span>
+pip<span class="w"> </span>uninstall<span class="w"> </span>sphinx<span class="w"> </span>sphinx-panels<span class="w"> </span>jupyter-book<span class="w"> </span>sphinxcontrib-applehelp<span class="w"> </span>sphinxcontrib-devhelp<span class="w"> </span>sphinxcontrib-jsmath<span class="w"> </span>sphinxcontrib-htmlhelp<span class="w"> </span>sphinxcontrib-serializinghtml<span class="w"> </span>sphinxcontrib-qthelp<span class="w"> </span>sphinx-design<span class="w"> </span>sphinx-external-toc<span class="w"> </span>pydata-sphinx-theme<span class="w"> </span>sphinx-jupyterbook-latex<span class="w"> </span>sphinx-book-theme<span class="w"> </span>myst-nb<span class="w"> </span>myst-parser
+pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;sphinx&gt;=5.0,&lt;6.0&quot;</span><span class="w"> </span>sphinxcontrib-applehelp<span class="w"> </span>sphinxcontrib-devhelp<span class="w"> </span>sphinxcontrib-jsmath<span class="w"> </span>sphinxcontrib-htmlhelp<span class="w"> </span>sphinxcontrib-serializinghtml<span class="w"> </span>sphinxcontrib-qthelp<span class="w"> </span>sphinx-design<span class="w"> </span><span class="s2">&quot;sphinx-external-toc&lt;2&quot;</span><span class="w"> </span><span class="s2">&quot;pydata-sphinx-theme&gt;=0.15.2&quot;</span><span class="w"> </span><span class="s2">&quot;sphinx-jupyterbook-latex&lt;2&quot;</span><span class="w"> </span><span class="s2">&quot;sphinx-book-theme&gt;=1.1.0,&lt;2&quot;</span><span class="w"> </span><span class="s2">&quot;myst-nb&lt;3&quot;</span><span class="w"> </span><span class="s2">&quot;myst-parser&lt;3&quot;</span><span class="w"> </span><span class="s2">&quot;jupyter-book&gt;=0.12.0&quot;</span><span class="w"> </span><span class="s2">&quot;sphinx-thebe&gt;=0.3,&lt;1&quot;</span><span class="w"> </span>sphinx-panels
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="c1"># big files</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>figures
+rm<span class="w"> </span>-rf<span class="w"> </span>_build/html/_images
+
+<span class="c1"># parent directory</span>
+<span class="nb">cd</span><span class="w"> </span>~/documents/hades
+
+<span class="c1"># block ghp-import (use netlify or import manually)</span>
+new/jbb_https.sh
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -3406,15 +3435,16 @@ git<span class="w"> </span>add<span class="w"> </span>./*
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-myenv-sh">41 <code class="docutils literal notranslate"><span class="pre">setup_myenv.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-config-global-http-sslverify-false">42 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">http.sslVerify</span> <span class="pre">false</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-sphinx-5-0-6-0">43 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"sphinx&gt;=5.0,&lt;6.0"</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">44</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jb-build">44 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jb</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jupyter-book-build"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying">Deploying</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-netlify">On Netlify</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiki-style-jb">45 <code class="docutils literal notranslate"><span class="pre">wiki-style</span> <span class="pre">jb</span></code></a></li>
 </ul>
   </nav></div>
 
