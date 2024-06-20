@@ -545,6 +545,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7 <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">47</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-transfer-ssh-key-from-poseidon-to-athena">Summary: Transfer SSH Key from Poseidon to Athena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands-summary">Example Commands Summary</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -3328,6 +3333,191 @@ mv<span class="w"> </span>cnd/book/website/_build<span class="w"> </span>everyda
 </div>
 </section>
 </section>
+<section id="id14">
+<h2>47<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<p>Certainly! Here’s a summarized step-by-step guide for transferring your SSH private key from Poseidon (iMacPro) to Athena (Studio Pro) and ensuring everything is set up correctly:</p>
+<section id="summary-transfer-ssh-key-from-poseidon-to-athena">
+<h3>Summary: Transfer SSH Key from Poseidon to Athena<a class="headerlink" href="#summary-transfer-ssh-key-from-poseidon-to-athena" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Find the Username and Hostname/IP Address of Athena</strong></p>
+<ul>
+<li><p>On Athena, open Terminal and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whoami
+hostname
+hostname<span class="w"> </span>-I
+</pre></div>
+</div>
+</li>
+<li><p>Note the username, hostname, and IP address.</p></li>
+</ul>
+</li>
+<li><p><strong>Ensure SSH is Installed and Running on Athena</strong></p>
+<ul>
+<li><p>Check if SSH is installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-V
+</pre></div>
+</div>
+</li>
+<li><p>Ensure SSH service is running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemsetup<span class="w"> </span>-getremotelogin
+sudo<span class="w"> </span>systemsetup<span class="w"> </span>-setremotelogin<span class="w"> </span>on<span class="w">  </span><span class="c1"># If not already on</span>
+sudo<span class="w"> </span>launchctl<span class="w"> </span>load<span class="w"> </span>-w<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist<span class="w">  </span><span class="c1"># Start SSH service</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Configure SSH Daemon on Athena</strong></p>
+<ul>
+<li><p>Edit the SSH configuration file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</pre></div>
+</div>
+</li>
+<li><p>Ensure the following lines are uncommented:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+</pre></div>
+</div>
+</li>
+<li><p>Restart SSH service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>launchctl<span class="w"> </span>unload<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist
+sudo<span class="w"> </span>launchctl<span class="w"> </span>load<span class="w"> </span>-w<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Check and Configure Firewall on Athena</strong></p>
+<ul>
+<li><p>Ensure firewall allows SSH:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/usr/libexec/ApplicationFirewall/socketfilterfw<span class="w"> </span>--add<span class="w"> </span>/usr/sbin/sshd
+sudo<span class="w"> </span>/usr/libexec/ApplicationFirewall/socketfilterfw<span class="w"> </span>--unblockapp<span class="w"> </span>/usr/sbin/sshd
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Transfer SSH Key from Poseidon to Athena</strong></p>
+<ul>
+<li><p>On Poseidon, use <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the SSH key:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>~/.ssh/id_rsa<span class="w"> </span>yourusername@athena.local:/home/yourusername/.ssh/
+</pre></div>
+</div>
+</li>
+<li><p>Or, if using IP address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>~/.ssh/id_rsa<span class="w"> </span>yourusername@192.168.1.100:/home/yourusername/.ssh/
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Set Correct Permissions on Athena</strong></p>
+<ul>
+<li><p>SSH into Athena:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>yourusername@athena.local
+</pre></div>
+</div>
+</li>
+<li><p>Or, if using IP address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>yourusername@192.168.1.100
+</pre></div>
+</div>
+</li>
+<li><p>Set the correct permissions for the SSH key:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/id_rsa
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Verify the Transfer</strong></p>
+<ul>
+<li><p>Navigate to the <code class="docutils literal notranslate"><span class="pre">.ssh</span></code> directory on Athena and list the files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ssh
+ls<span class="w"> </span>-la
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="example-commands-summary">
+<h3>Example Commands Summary<a class="headerlink" href="#example-commands-summary" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Find username and hostname/IP address</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whoami
+hostname
+hostname<span class="w"> </span>-I
+</pre></div>
+</div>
+</li>
+<li><p><strong>Ensure SSH is installed and running</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-V
+sudo<span class="w"> </span>systemsetup<span class="w"> </span>-getremotelogin
+sudo<span class="w"> </span>systemsetup<span class="w"> </span>-setremotelogin<span class="w"> </span>on
+sudo<span class="w"> </span>launchctl<span class="w"> </span>load<span class="w"> </span>-w<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist
+</pre></div>
+</div>
+</li>
+<li><p><strong>Configure SSH daemon</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</pre></div>
+</div>
+<p>Uncomment:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>Port 22
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+</pre></div>
+</div>
+<p>Restart SSH service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>launchctl<span class="w"> </span>unload<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist
+sudo<span class="w"> </span>launchctl<span class="w"> </span>load<span class="w"> </span>-w<span class="w"> </span>/System/Library/LaunchDaemons/ssh.plist
+</pre></div>
+</div>
+</li>
+<li><p><strong>Configure firewall</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/usr/libexec/ApplicationFirewall/socketfilterfw<span class="w"> </span>--add<span class="w"> </span>/usr/sbin/sshd
+sudo<span class="w"> </span>/usr/libexec/ApplicationFirewall/socketfilterfw<span class="w"> </span>--unblockapp<span class="w"> </span>/usr/sbin/sshd
+</pre></div>
+</div>
+</li>
+<li><p><strong>Transfer SSH key using <code class="docutils literal notranslate"><span class="pre">scp</span></code></strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>~/.ssh/id_rsa<span class="w"> </span>yourusername@athena.local:/home/yourusername/.ssh/
+</pre></div>
+</div>
+<p>Or, using IP address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>~/.ssh/id_rsa<span class="w"> </span>yourusername@192.168.1.100:/home/yourusername/.ssh/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set correct permissions</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>yourusername@athena.local
+</pre></div>
+</div>
+<p>Or, using IP address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>yourusername@192.168.1.100
+</pre></div>
+</div>
+<p>Then set permissions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/id_rsa
+</pre></div>
+</div>
+</li>
+<li><p><strong>Verify the transfer</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/.ssh
+ls<span class="w"> </span>-la
+</pre></div>
+</div>
+</li>
+</ol>
+<p>By following these steps, you should have successfully transferred your SSH key from Poseidon to Athena and ensured the proper configuration and permissions.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3556,6 +3746,11 @@ mv<span class="w"> </span>cnd/book/website/_build<span class="w"> </span>everyda
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rm">5 <code class="docutils literal notranslate"><span class="pre">rm</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-jbb-https-sh">6 <code class="docutils literal notranslate"><span class="pre">new/jbb_https.sh</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7 <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">47</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-transfer-ssh-key-from-poseidon-to-athena">Summary: Transfer SSH Key from Poseidon to Athena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands-summary">Example Commands Summary</a></li>
 </ul>
 </li>
 </ul>
