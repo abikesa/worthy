@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -139,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -160,7 +164,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -182,6 +186,8 @@
 <li class="toctree-l1"><a class="reference internal" href="chapter2.html">R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter3.html">Stata</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bash</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="chapter5.html">Unix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter6.html">Natural</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter7.html">Remote</a></li>
@@ -342,10 +348,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -353,7 +359,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -381,6 +387,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bash</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1 <code class="docutils literal notranslate"><span class="pre">$()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-https-sh">2 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-ssh-sh">3 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_ssh.sh</span></code></a></li>
@@ -392,7 +399,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-key-g-sh">9 <code class="docutils literal notranslate"><span class="pre">work/abikesa_key_g.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-key-sh">10 <code class="docutils literal notranslate"><span class="pre">work/abikesa_key.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-ngoma-sh">11 <code class="docutils literal notranslate"><span class="pre">work/abikesa_ngoma.sh</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-remove-duplicages-sh">12 <code class="docutils literal notranslate"><span class="pre">work/abikesa_remove_duplicages.sh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rmstuff-https-sh">12 <code class="docutils literal notranslate"><span class="pre">new/rmstuff_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmdir-sh">13 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmdir.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmfiles-sh">14 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmfiles.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmstuff-sh">15 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmstuff.sh</span></code></a></li>
@@ -525,13 +532,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-myenv-sh">41 <code class="docutils literal notranslate"><span class="pre">setup_myenv.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-config-global-http-sslverify-false">42 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">http.sslVerify</span> <span class="pre">false</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-sphinx-5-0-6-0">43 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"sphinx&gt;=5.0,&lt;6.0"</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">44</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">44 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jupyter-book-build"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying">Deploying</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-netlify">On Netlify</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiki-style-jb">45 <code class="docutils literal notranslate"><span class="pre">wiki-style</span> <span class="pre">jb</span></code></a></li>
@@ -539,7 +546,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myenv">1 <code class="docutils literal notranslate"><span class="pre">myenv</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-rm">2 <code class="docutils literal notranslate"><span class="pre">clone</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">rm</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toc-yml">3 <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rm">5 <code class="docutils literal notranslate"><span class="pre">rm</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-jbb-https-sh">6 <code class="docutils literal notranslate"><span class="pre">new/jbb_https.sh</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7 <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code></a></li>
@@ -550,7 +557,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands-summary">Example Commands Summary</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-setup-sh">48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code></a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-tidy-work-directory">setup tidy work directory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#template-as-starting-point">template as starting point</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -1240,8 +1253,9 @@ rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$REPO_NAME
 </pre></div>
 </div>
 </section>
-<section id="work-abikesa-remove-duplicages-sh">
-<h2>12 <code class="docutils literal notranslate"><span class="pre">work/abikesa_remove_duplicages.sh</span></code><a class="headerlink" href="#work-abikesa-remove-duplicages-sh" title="Link to this heading">#</a></h2>
+<section id="new-rmstuff-https-sh">
+<h2>12 <code class="docutils literal notranslate"><span class="pre">new/rmstuff_https.sh</span></code><a class="headerlink" href="#new-rmstuff-https-sh" title="Link to this heading">#</a></h2>
+<p>Look out for the above <a class="reference external" href="https://abikesa.github.io/workflow/intro.html">program</a>. Thats because <code class="docutils literal notranslate"><span class="pre">work/abikesa_remove_duplicates.sh</span></code> was discontinued</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Check if a directory path is provided</span>
@@ -3172,8 +3186,8 @@ Ensure your Git version is up-to-date. You can download the latest version from 
 </div>
 <p>If further adjustments are needed, please let me know.</p>
 </section>
-<section id="id11">
-<h2>44<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="requirements-txt">
+<h2>44 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#requirements-txt" title="Link to this heading">#</a></h2>
 <section id="pip-install-r-requirements-txt-jupyter-book-build">
 <h3><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code><a class="headerlink" href="#pip-install-r-requirements-txt-jupyter-book-build" title="Link to this heading">#</a></h3>
 <section id="deploying">
@@ -3203,8 +3217,8 @@ jupyter-book<span class="w"> </span>build<span class="w"> </span>.
 </div>
 </section>
 </section>
-<section id="id12">
-<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id11">
+<h3><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code><a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>credential-cache<span class="w"> </span><span class="nb">exit</span>
 <span class="nb">cd</span><span class="w"> </span>home/book/website
 git<span class="w"> </span>add<span class="w"> </span>./*
@@ -3293,8 +3307,8 @@ mv<span class="w"> </span>the-turing-way<span class="w"> </span>cnd
 </li>
 </ul>
 </section>
-<section id="requirements-txt">
-<h3>4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#requirements-txt" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code><a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <p>This gives an error on <code class="docutils literal notranslate"><span class="pre">Athena</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Hades</span></code>, but not on <code class="docutils literal notranslate"><span class="pre">Poseidon</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>cnd/book/website
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>jupyter-book<span class="w"> </span>build<span class="w"> </span>.
@@ -3518,6 +3532,27 @@ ls<span class="w"> </span>-la
 <p>By following these steps, you should have successfully transferred your SSH key from Poseidon to Athena and ensured the proper configuration and permissions.</p>
 </section>
 </section>
+<section id="new-setup-sh">
+<h2>48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code><a class="headerlink" href="#new-setup-sh" title="Link to this heading">#</a></h2>
+<p>#! /bin/bash</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="setup-tidy-work-directory">
+<h1>setup tidy work directory<a class="headerlink" href="#setup-tidy-work-directory" title="Link to this heading">#</a></h1>
+<p>read -p “Enter your root directory (default: /documents/rhythm): “ ROOT_DIR
+ROOT_DIR=${ROOT_DIR:-/documents/rhythm}</p>
+<p>read -p “Enter the name of the subdirectory that archives .sh scripts (default: new): “ SUBDIR_NAME
+SUBDIR_NAME=${SUBDIR_NAME:-new}</p>
+<p>cd ~/<span class="math notranslate nohighlight">\(ROOT_DIR &amp;&amp; rm -rf * &amp;&amp; git clone https://github.com/abikesa/workflow &amp;&amp; mv workflow \)</span>SUBDIR_NAME &amp;&amp; $SUBDIR_NAME/setup_myenv.sh &amp;&amp; source myenv/bin/activate</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="template-as-starting-point">
+<h1>template as starting point<a class="headerlink" href="#template-as-starting-point" title="Link to this heading">#</a></h1>
+<p>read -p “Enter template GitHub repository name (default: template-repo): “ REPO_NAME
+REPO_NAME=${REPO_NAME:-template-repo}</p>
+<p>git clone <a class="github reference external" href="https://github.com/abikesa/">abikesa/</a><span class="math notranslate nohighlight">\(REPO_NAME
+mv \)</span>REPO_NAME local
+cd local/kitabo/ensi
+echo “Make updates to $ROOT_DIR/local”</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3584,6 +3619,7 @@ ls<span class="w"> </span>-la
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bash</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1 <code class="docutils literal notranslate"><span class="pre">$()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-https-sh">2 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-ssh-sh">3 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_ssh.sh</span></code></a></li>
@@ -3595,7 +3631,7 @@ ls<span class="w"> </span>-la
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-key-g-sh">9 <code class="docutils literal notranslate"><span class="pre">work/abikesa_key_g.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-key-sh">10 <code class="docutils literal notranslate"><span class="pre">work/abikesa_key.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-ngoma-sh">11 <code class="docutils literal notranslate"><span class="pre">work/abikesa_ngoma.sh</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-remove-duplicages-sh">12 <code class="docutils literal notranslate"><span class="pre">work/abikesa_remove_duplicages.sh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rmstuff-https-sh">12 <code class="docutils literal notranslate"><span class="pre">new/rmstuff_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmdir-sh">13 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmdir.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmfiles-sh">14 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmfiles.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-rmstuff-sh">15 <code class="docutils literal notranslate"><span class="pre">work/abikesa_rmstuff.sh</span></code></a></li>
@@ -3728,13 +3764,13 @@ ls<span class="w"> </span>-la
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-myenv-sh">41 <code class="docutils literal notranslate"><span class="pre">setup_myenv.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-config-global-http-sslverify-false">42 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">http.sslVerify</span> <span class="pre">false</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-sphinx-5-0-6-0">43 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">"sphinx&gt;=5.0,&lt;6.0"</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">44</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">44 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-install-r-requirements-txt-jupyter-book-build"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">&amp;&amp;</span> <span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying">Deploying</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#on-netlify">On Netlify</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">credential-cache</span> <span class="pre">exit</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wiki-style-jb">45 <code class="docutils literal notranslate"><span class="pre">wiki-style</span> <span class="pre">jb</span></code></a></li>
@@ -3742,7 +3778,7 @@ ls<span class="w"> </span>-la
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myenv">1 <code class="docutils literal notranslate"><span class="pre">myenv</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-rm">2 <code class="docutils literal notranslate"><span class="pre">clone</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">rm</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toc-yml">3 <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rm">5 <code class="docutils literal notranslate"><span class="pre">rm</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-jbb-https-sh">6 <code class="docutils literal notranslate"><span class="pre">new/jbb_https.sh</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">7 <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code></a></li>
@@ -3753,7 +3789,13 @@ ls<span class="w"> </span>-la
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-commands-summary">Example Commands Summary</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-setup-sh">48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code></a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-tidy-work-directory">setup tidy work directory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#template-as-starting-point">template as starting point</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
@@ -3801,8 +3843,8 @@ By Gideon's Son
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
