@@ -57,8 +57,6 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -186,8 +184,6 @@
 <li class="toctree-l1"><a class="reference internal" href="chapter2.html">R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter3.html">Stata</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bash</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="chapter5.html">Unix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter6.html">Natural</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter7.html">Remote</a></li>
@@ -387,7 +383,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bash</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1 <code class="docutils literal notranslate"><span class="pre">$()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-https-sh">2 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-ssh-sh">3 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_ssh.sh</span></code></a></li>
@@ -559,11 +554,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-setup-sh">48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-tidy-work-directory">setup tidy work directory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#template-as-starting-point">template as starting point</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -3534,25 +3524,28 @@ ls<span class="w"> </span>-la
 </section>
 <section id="new-setup-sh">
 <h2>48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code><a class="headerlink" href="#new-setup-sh" title="Link to this heading">#</a></h2>
-<p>#! /bin/bash</p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="setup-tidy-work-directory">
-<h1>setup tidy work directory<a class="headerlink" href="#setup-tidy-work-directory" title="Link to this heading">#</a></h1>
-<p>read -p “Enter your root directory (default: /documents/rhythm): “ ROOT_DIR
-ROOT_DIR=${ROOT_DIR:-/documents/rhythm}</p>
-<p>read -p “Enter the name of the subdirectory that archives .sh scripts (default: new): “ SUBDIR_NAME
-SUBDIR_NAME=${SUBDIR_NAME:-new}</p>
-<p>cd ~/<span class="math notranslate nohighlight">\(ROOT_DIR &amp;&amp; rm -rf * &amp;&amp; git clone https://github.com/abikesa/workflow &amp;&amp; mv workflow \)</span>SUBDIR_NAME &amp;&amp; $SUBDIR_NAME/setup_myenv.sh &amp;&amp; source myenv/bin/activate</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="template-as-starting-point">
-<h1>template as starting point<a class="headerlink" href="#template-as-starting-point" title="Link to this heading">#</a></h1>
-<p>read -p “Enter template GitHub repository name (default: template-repo): “ REPO_NAME
-REPO_NAME=${REPO_NAME:-template-repo}</p>
-<p>git clone <a class="github reference external" href="https://github.com/abikesa/">abikesa/</a><span class="math notranslate nohighlight">\(REPO_NAME
-mv \)</span>REPO_NAME local
+<div class="highlight-/sh notranslate"><div class="highlight"><pre><span></span>#! /bin/bash
+
+# setup tidy work directory
+read -p &quot;Enter your root directory (default: /documents/rhythm): &quot; ROOT_DIR
+ROOT_DIR=${ROOT_DIR:-/documents/rhythm}
+
+read -p &quot;Enter the name of the subdirectory that archives .sh scripts (default: new): &quot; SUBDIR_NAME
+SUBDIR_NAME=${SUBDIR_NAME:-new}
+
+cd ~/$ROOT_DIR &amp;&amp; rm -rf * &amp;&amp; git clone https://github.com/abikesa/workflow &amp;&amp; mv workflow $SUBDIR_NAME &amp;&amp; $SUBDIR_NAME/setup_myenv.sh &amp;&amp; source myenv/bin/activate
+
+# template as starting point
+read -p &quot;Enter template GitHub repository name (default: template-repo): &quot; REPO_NAME
+REPO_NAME=${REPO_NAME:-template-repo}
+
+git clone https://github.com/abikesa/$REPO_NAME
+mv $REPO_NAME local
 cd local/kitabo/ensi
-echo “Make updates to $ROOT_DIR/local”</p>
+echo &quot;Make updates to $ROOT_DIR/local&quot;
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3619,7 +3612,6 @@ echo “Make updates to $ROOT_DIR/local”</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bash</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1 <code class="docutils literal notranslate"><span class="pre">$()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-https-sh">2 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_https.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-abikesa-jbb-ssh-sh">3 <code class="docutils literal notranslate"><span class="pre">work/abikesa_jbb_ssh.sh</span></code></a></li>
@@ -3791,11 +3783,6 @@ echo “Make updates to $ROOT_DIR/local”</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-setup-sh">48 <code class="docutils literal notranslate"><span class="pre">new/setup.sh</span></code></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-tidy-work-directory">setup tidy work directory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#template-as-starting-point">template as starting point</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
