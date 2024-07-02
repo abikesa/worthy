@@ -1,5 +1,7 @@
 # Figure 3
 
+> Talking to computers in natural language
+
 ![](JAMA.png)
 
 ```bash
