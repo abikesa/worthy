@@ -563,6 +563,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-grid">51 <code class="docutils literal notranslate"><span class="pre">.video-grid</span> <span class="pre">{</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brew-install-ffmpeg">52 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">ffmpeg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed Steps:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -3730,6 +3734,57 @@ This command updates the remote repository to match your local repository, overw
 </pre></div>
 </div>
 </section>
+<section id="brew-install-ffmpeg">
+<h2>52 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">ffmpeg</span></code><a class="headerlink" href="#brew-install-ffmpeg" title="Permalink to this heading">#</a></h2>
+<p>It looks like the <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code> package you installed is a Python wrapper, not the actual FFmpeg binary needed for conversion. To use FFmpeg from the command line, you need to install the FFmpeg binary itself.</p>
+<p>Here’s how to install FFmpeg on macOS using Homebrew, which is the recommended way:</p>
+<ol class="arabic">
+<li><p><strong>Install Homebrew</strong> (if you don’t have it already):
+Open your terminal and paste the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install FFmpeg</strong> (here’s where I started the process; it took <code class="docutils literal notranslate"><span class="pre">forever</span></code>, so be patient!):
+Once Homebrew is installed, run the following command to install FFmpeg:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</pre></div>
+</div>
+</li>
+<li><p><strong>Convert the audio file</strong>:
+After FFmpeg is installed, you can convert the audio file using the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>ii-v-I.m4a<span class="w"> </span>ii-v-I.mp3
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="detailed-steps">
+<h3>Detailed Steps:<a class="headerlink" href="#detailed-steps" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Install Homebrew</strong>:
+If you haven’t already installed Homebrew, open your terminal and run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install FFmpeg</strong>:
+With Homebrew installed, you can now install FFmpeg by running:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</pre></div>
+</div>
+</li>
+<li><p><strong>Convert the .m4a file to .mp3</strong>:
+Once FFmpeg is installed, you can use it to convert your file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-i<span class="w"> </span>ii-v-I.m4a<span class="w"> </span>ii-v-I.mp3
+</pre></div>
+</div>
+</li>
+<li><p><strong>Verify the conversion</strong>:
+Ensure that the new .mp3 file has been created in the same directory (and in the <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> extension as well).</p></li>
+</ol>
+<p>This should resolve the issue, allowing you to convert your audio files and embed them in your Jupyter Book successfully.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3974,6 +4029,10 @@ This command updates the remote repository to match your local repository, overw
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-grid">51 <code class="docutils literal notranslate"><span class="pre">.video-grid</span> <span class="pre">{</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brew-install-ffmpeg">52 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">ffmpeg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed Steps:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
