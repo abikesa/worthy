@@ -568,6 +568,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -3847,6 +3848,31 @@ The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not 
 </div>
 <p>Let me know if you need any clarification or if you encounter any new errors after making these changes.</p>
 </section>
+<section id="unsrt">
+<h2>54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code><a class="headerlink" href="#unsrt" title="Permalink to this heading">#</a></h2>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>sphinx:
+  extra_extensions          :
+      - &#39;sphinx_panels&#39;
+      - &#39;sphinxcontrib.bibtex&#39;
+  config                    :  # key-value pairs to directly over-ride the Sphinx configuration
+    language                : en
+    html_show_copyright     : false
+    suppress_warnings       :
+        - &#39;app.add_node&#39;
+        - &#39;app.add_directive&#39;
+        - &#39;app.add_role&#39;
+    myst_heading_anchors    : 5
+    bibtex_bibfiles         :
+      - _bibliography/references.bib
+    bibtex_reference_order: &#39;citation&#39; 
+    bibtex_default_style: &#39;unsrt&#39; # &#39;plain&#39; 
+    bibtex_reference_style: &#39;label&#39; # &#39;author_year&#39;  
+    bibtex_cite_style: &#39;numeric&#39;
+    bibtex_footbibliography_header: &#39;&#39;
+
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4096,6 +4122,7 @@ The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 </ul>
   </nav></div>
 
