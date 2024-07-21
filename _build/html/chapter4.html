@@ -3837,7 +3837,7 @@ The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not 
 </li>
 </ol>
 <p>After making these changes, try building your book again:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jb</span> <span class="n">build</span> <span class="o">.</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jb<span class="w"> </span>build<span class="w"> </span>.
 </pre></div>
 </div>
 <p>If you still encounter issues, please provide the new error message, and we can troubleshoot further.</p>
@@ -3850,26 +3850,25 @@ The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not 
 </section>
 <section id="unsrt">
 <h2>54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code><a class="headerlink" href="#unsrt" title="Permalink to this heading">#</a></h2>
-<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>sphinx:
-  extra_extensions          :
-      - &#39;sphinx_panels&#39;
-      - &#39;sphinxcontrib.bibtex&#39;
-  config                    :  # key-value pairs to directly over-ride the Sphinx configuration
-    language                : en
-    html_show_copyright     : false
-    suppress_warnings       :
-        - &#39;app.add_node&#39;
-        - &#39;app.add_directive&#39;
-        - &#39;app.add_role&#39;
-    myst_heading_anchors    : 5
-    bibtex_bibfiles         :
-      - _bibliography/references.bib
-    bibtex_reference_order: &#39;citation&#39; 
-    bibtex_default_style: &#39;unsrt&#39; # &#39;plain&#39; 
-    bibtex_reference_style: &#39;label&#39; # &#39;author_year&#39;  
-    bibtex_cite_style: &#39;numeric&#39;
-    bibtex_footbibliography_header: &#39;&#39;
-
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sphinx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">extra_extensions          </span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;sphinx_panels&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;sphinxcontrib.bibtex&#39;</span>
+<span class="w">  </span><span class="nt">config                    </span><span class="p">:</span><span class="w">  </span><span class="c1"># key-value pairs to directly over-ride the Sphinx configuration</span>
+<span class="w">    </span><span class="nt">language                </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<span class="w">    </span><span class="nt">html_show_copyright     </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">suppress_warnings       </span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;app.add_node&#39;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;app.add_directive&#39;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;app.add_role&#39;</span>
+<span class="w">    </span><span class="nt">myst_heading_anchors    </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">bibtex_bibfiles         </span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_bibliography/references.bib</span>
+<span class="w">    </span><span class="nt">bibtex_reference_order</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;citation&#39;</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">bibtex_default_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;unsrt&#39;</span><span class="w"> </span><span class="c1"># &#39;plain&#39; </span>
+<span class="w">    </span><span class="nt">bibtex_reference_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;label&#39;</span><span class="w"> </span><span class="c1"># &#39;author_year&#39;  </span>
+<span class="w">    </span><span class="nt">bibtex_cite_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;numeric&#39;</span>
+<span class="w">    </span><span class="nt">bibtex_footbibliography_header</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
 </pre></div>
 </div>
 </section>
