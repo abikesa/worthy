@@ -567,6 +567,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed Steps:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -3785,6 +3786,67 @@ Ensure that the new .mp3 file has been created in the same directory (and in the
 <p>This should resolve the issue, allowing you to convert your audio files and embed them in your Jupyter Book successfully.</p>
 </section>
 </section>
+<section id="sphinx">
+<h2>53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code><a class="headerlink" href="#sphinx" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Claude 3.5 sorted this out in first iteration. GPT-4o after 10 or so iterations frustrated me &amp; failed.</p>
+</div></blockquote>
+<p>It looks like there are a few issues we need to address. Let’s go through them step by step:</p>
+<ol class="arabic">
+<li><p>Unknown config value ‘bibtex_reference_order’:
+Remove this line from your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">bibtex_reference_order</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;citation&#39;</span>
+</pre></div>
+</div>
+<p>This option is not recognized by the current version of sphinxcontrib-bibtex.</p>
+</li>
+<li><p>Plugin not found error:
+The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not found. This could be due to an outdated version of sphinxcontrib-bibtex. Let’s update it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">bibtex</span>
+</pre></div>
+</div>
+</li>
+<li><p>After updating, modify your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> to use the correct configuration for numeric citations:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sphinx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">bibtex_default_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;plain&#39;</span>
+<span class="w">    </span><span class="nt">bibtex_reference_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;author_year&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Instead of using a custom CSL file, we’ll use the built-in styles. Add this to your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sphinx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">bibtex_cite_style</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;numeric&#39;</span>
+<span class="w">    </span><span class="nt">bibtex_footbibliography_header</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>In your Markdown files, you can now use citations like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This is a citation {cite}`muzaale2014risk`.
+</pre></div>
+</div>
+</li>
+<li><p>For your bibliography section, use:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Bibliography</span>
+
+```{bibliography}
+</pre></div>
+</div>
+</li>
+</ol>
+<p>After making these changes, try building your book again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jb</span> <span class="n">build</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>If you still encounter issues, please provide the new error message, and we can troubleshoot further.</p>
+<p>Remember, the exact configuration might depend on the specific versions of Jupyter Book and sphinxcontrib-bibtex you’re using. If you continue to have problems, you might want to check your installed versions and ensure they’re compatible:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span>
+<span class="n">pip</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">bibtex</span>
+</pre></div>
+</div>
+<p>Let me know if you need any clarification or if you encounter any new errors after making these changes.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4033,6 +4095,7 @@ Ensure that the new .mp3 file has been created in the same directory (and in the
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-steps">Detailed Steps:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
 </ul>
   </nav></div>
 
