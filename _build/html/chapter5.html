@@ -391,6 +391,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">8</a></li>
 </ul>
             </nav>
         </div>
@@ -539,6 +542,57 @@ git<span class="w"> </span>config<span class="w"> </span>http.lowSpeedTime<span 
 </pre></div>
 </div>
 </section>
+<section id="id7">
+<h2>6<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Change to the morality directory</span>
+<span class="nb">cd</span><span class="w"> </span>morality
+
+<span class="c1"># Loop through all items in the directory</span>
+<span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span>*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># Check if the item is a directory and not &quot;kitabo&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;kitabo&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c1"># Remove all contents of the directory</span>
+<span class="w">        </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span>/*
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted contents of </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Finished deleting directory contents&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>7<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="c1"># setup tidy work directory</span>
+<span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter your root directory (default: /documents/rhythm): &quot;</span><span class="w"> </span>ROOT_DIR
+<span class="nv">ROOT_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">ROOT_DIR</span><span class="k">:-</span><span class="p">/documents/rhythm</span><span class="si">}</span>
+
+<span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter the name of the subdirectory that archives .sh scripts (default: new): &quot;</span><span class="w"> </span>SUBDIR_NAME
+<span class="nv">SUBDIR_NAME</span><span class="o">=</span><span class="si">${</span><span class="nv">SUBDIR_NAME</span><span class="k">:-</span><span class="nv">new</span><span class="si">}</span>
+
+<span class="nb">cd</span><span class="w"> </span>~/<span class="nv">$ROOT_DIR</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abikesa/workflow<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>workflow<span class="w"> </span><span class="nv">$SUBDIR_NAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">$SUBDIR_NAME</span>/setup_myenv.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>myenv/bin/activate
+
+<span class="c1"># template as starting point</span>
+<span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;Enter template GitHub repository name (default: template-repo): &quot;</span><span class="w"> </span>REPO_NAME
+<span class="nv">REPO_NAME</span><span class="o">=</span><span class="si">${</span><span class="nv">REPO_NAME</span><span class="k">:-</span><span class="nv">haydn</span><span class="si">}</span>
+
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abikesa/<span class="nv">$REPO_NAME</span>
+mv<span class="w"> </span><span class="nv">$REPO_NAME</span><span class="w"> </span><span class="nb">local</span>
+<span class="nb">cd</span><span class="w"> </span>local/kitabo/ensi
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Make updates to </span><span class="nv">$ROOT_DIR</span><span class="s2">/local&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h2>8<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abikesa/template
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -611,6 +665,9 @@ git<span class="w"> </span>config<span class="w"> </span>http.lowSpeedTime<span 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">8</a></li>
 </ul>
   </nav></div>
 
