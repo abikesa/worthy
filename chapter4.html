@@ -570,6 +570,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -3875,10 +3876,144 @@ The error suggests that the ‘numeric’ style for sphinxcontrib-bibtex is not 
 </section>
 <section id="template-sh">
 <h2>55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code><a class="headerlink" href="#template-sh" title="Permalink to this heading">#</a></h2>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># personalized version of &#39;jb create template&#39;</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abikesa/template
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># A default configuration that will be loaded for all jupyter books</span>
+<span class="c1"># Users are expected to override these values in their own `_config.yml` file.</span>
+<span class="c1"># This is also the &quot;master list&quot; of all allowed keys and values.</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Book settings</span>
+title<span class="w">                       </span>:<span class="w"> </span>Template<span class="w">  </span><span class="c1"># The title of the book. Will be placed in the left navbar.</span>
+author<span class="w">                      </span>:<span class="w">   </span><span class="c1"># The author of the book</span>
+copyright<span class="w">                   </span>:<span class="w"> </span><span class="s2">&quot;2025&quot;</span><span class="w">  </span><span class="c1"># Copyright year to be placed in the footer</span>
+logo<span class="w">                        </span>:<span class="w"> </span><span class="s2">&quot;https://github.com/jhufena/jhufena.github.io/blob/main/png/hub_and_spoke.jpg?raw=true&quot;</span><span class="w">  </span><span class="c1"># A path to the book logo</span>
+email<span class="w">                       </span>:<span class="w"> </span><span class="s2">&quot;abikesa.sh@gmail.com&quot;</span>
+exclude_patterns<span class="w">            </span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;LICENSE.md&quot;</span><span class="o">]</span><span class="w">  </span><span class="c1"># Patterns to skip when building the book. Can be glob-style (for example &quot;*skip.ipynb&quot;)</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Execution settings</span>
+execute:
+<span class="w">  </span>execute_notebooks<span class="w">         </span>:<span class="w"> </span>auto<span class="w">  </span><span class="c1"># Whether to execute notebooks at build time. Must be one of (&quot;auto&quot;, &quot;force&quot;, &quot;cache&quot;, &quot;off&quot;)</span>
+<span class="w">  </span>cache<span class="w">                     </span>:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1"># A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`</span>
+<span class="w">  </span>exclude_patterns<span class="w">          </span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;LICENSE.md&quot;</span><span class="o">]</span><span class="w">  </span><span class="c1"># A list of patterns to *skip* in execution (for example a notebook that takes a really long time)</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># HTML-specific settings</span>
+html:
+<span class="w">  </span>navbar_number_sections<span class="w">    </span>:<span class="w"> </span>False<span class="w">  </span><span class="c1"># Add a number to each section in your left navbar</span>
+<span class="w">  </span>home_page_in_navbar<span class="w">       </span>:<span class="w"> </span>False<span class="w">  </span><span class="c1"># Whether to include your home page in the left Navigation Bar; I like this!!!!!!!</span>
+<span class="w">  </span>use_repository_button<span class="w">     </span>:<span class="w"> </span>False<span class="w">  </span><span class="c1"># Whether to add an &quot;Repository&quot; button to pages. If `true`, repository information in repository: must be filled in</span>
+<span class="w">  </span>use_issues_button<span class="w">         </span>:<span class="w"> </span>False<span class="w">  </span><span class="c1"># Whether to add an &quot;Open issue&quot; button to pages. If `true`, repository information in repository: must be filled in</span>
+<span class="w">  </span>use_edit_page_button<span class="w">      </span>:<span class="w"> </span>False<span class="w">  </span><span class="c1"># Whether to add an &quot;Suggest edit&quot; button to pages. If `true`, repository information in repository: must be filled in</span>
+<span class="w">  </span>extra_footer<span class="w">              </span>:<span class="w"> </span><span class="p">|</span>
+<span class="w">   </span>Copyright<span class="w"> </span>©<span class="w"> </span><span class="m">2025</span><span class="w"> </span>ADM
+<span class="w">  </span>comments:
+<span class="w">    </span>hypothesis<span class="w">              </span>:<span class="w"> </span>False<span class="w"> </span><span class="c1"># For data collection in top right corner</span>
+<span class="w">  </span>extra_css:
+<span class="w">    </span>-<span class="w"> </span><span class="s2">&quot;_static/custom.css&quot;</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Launch button settings</span>
+launch_buttons:
+<span class="w">  </span>notebook_interface<span class="w">        </span>:<span class="w"> </span><span class="s2">&quot;classic&quot;</span><span class="w">  </span><span class="c1"># The interface interactive links will activate [&quot;classic&quot;, &quot;jupyterlab&quot;]</span>
+<span class="w">  </span>binderhub_url<span class="w">             </span>:<span class="w"> </span><span class="s2">&quot;https://mybinder.org&quot;</span><span class="w">  </span><span class="c1"># The URL of the BinderHub (for example, https://mybinder.org)</span>
+<span class="w">  </span>jupyterhub_url<span class="w">            </span>:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">  </span><span class="c1"># The URL of the JupyterHub (for example, https://datahub.berkeley.edu)</span>
+<span class="w">  </span>thebelab<span class="w">                  </span>:<span class="w"> </span><span class="nb">false</span><span class="w">  </span><span class="c1"># Add a thebelab button to pages (requires the repository to run on Binder)</span>
+
+repository:
+<span class="w">  </span>url<span class="w">                       </span>:<span class="w"> </span>https://github.com/abikesa/template<span class="w"> </span><span class="c1"># The URL to your book&#39;s repository</span>
+<span class="w">  </span>path_to_book<span class="w">              </span>:<span class="w"> </span><span class="s2">&quot;book/website&quot;</span><span class="w">  </span><span class="c1"># A path to your book&#39;s folder, relative to the repository root.</span>
+<span class="w">  </span>branch<span class="w">                    </span>:<span class="w"> </span>main
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Advanced and power-user settings</span>
+sphinx:
+<span class="w">  </span>extra_extensions<span class="w">          </span>:
+<span class="w">      </span>-<span class="w"> </span><span class="s1">&#39;sphinx_panels&#39;</span>
+<span class="w">      </span>-<span class="w"> </span><span class="s1">&#39;sphinxcontrib.bibtex&#39;</span>
+<span class="w">  </span>config<span class="w">                    </span>:<span class="w">  </span><span class="c1"># key-value pairs to directly over-ride the Sphinx configuration</span>
+<span class="w">    </span>language<span class="w">                </span>:<span class="w"> </span>en
+<span class="w">    </span>html_show_copyright<span class="w">     </span>:<span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span>suppress_warnings<span class="w">       </span>:
+<span class="w">        </span>-<span class="w"> </span><span class="s1">&#39;app.add_node&#39;</span>
+<span class="w">        </span>-<span class="w"> </span><span class="s1">&#39;app.add_directive&#39;</span>
+<span class="w">        </span>-<span class="w"> </span><span class="s1">&#39;app.add_role&#39;</span>
+<span class="w">    </span>myst_heading_anchors<span class="w">    </span>:<span class="w"> </span><span class="m">5</span>
+<span class="w">    </span>bibtex_bibfiles<span class="w">         </span>:
+<span class="w">      </span>-<span class="w"> </span>_bibliography/references.bib
+<span class="w">    </span>bibtex_reference_order:<span class="w"> </span><span class="s1">&#39;citation&#39;</span><span class="w"> </span>
+<span class="w">    </span>bibtex_default_style:<span class="w"> </span><span class="s1">&#39;unsrt&#39;</span><span class="w"> </span><span class="c1"># &#39;plain&#39; </span>
+<span class="w">    </span>bibtex_reference_style:<span class="w"> </span><span class="s1">&#39;super&#39;</span><span class="w"> </span><span class="c1"># &#39;label&#39; # &#39;author_year&#39; (this worked)</span>
+<span class="w">    </span>bibtex_cite_style:<span class="w"> </span><span class="s1">&#39;super&#39;</span><span class="w"> </span><span class="c1">#&#39;numeric&#39; (for diff. jb version)</span>
+<span class="w">    </span>bibtex_footbibliography_header:<span class="w"> </span><span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
+</section>
+<section id="perplexity-ai">
+<h2>56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code><a class="headerlink" href="#perplexity-ai" title="Permalink to this heading">#</a></h2>
+<p>Jupyter Books support several variants of the <code class="docutils literal notranslate"><span class="pre">{note}</span></code> directive, which are known as “admonitions.” These are used to highlight important information in a structured way. Here are the different types of admonitions you can use in Jupyter Books:</p>
+<ol class="arabic">
+<li><p><strong>Note</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{note}
+This is a note.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Warning</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{warning}
+This is a warning.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Important</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{important}
+This is important.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Tip</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{tip}
+This is a tip.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Caution</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{caution}
+This is a caution.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Attention</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{attention}
+This is an attention.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>These directives help in organizing and emphasizing content in Jupyter Books, making the information more accessible and visually distinct for readers[1].</p>
+<p>Citations:
+[1] <a class="github reference external" href="https://github.com/jupyter-book/jupyter-book/blob/master/CHANGELOG.md">jupyter-book/jupyter-book</a>
+[2] <a class="reference external" href="https://discourse.jupyter.org/t/inline-variable-insertion-in-markdown/10525">https://discourse.jupyter.org/t/inline-variable-insertion-in-markdown/10525</a>
+[3] <a class="reference external" href="https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r">https://www.datacamp.com/blog/jupyter-and-r-markdown-notebooks-with-r</a>
+[4] <a class="reference external" href="https://www.bmc.com/blogs/installing-jupyter-for-big-data-and-analytics/">https://www.bmc.com/blogs/installing-jupyter-for-big-data-and-analytics/</a>
+[5] <a class="reference external" href="https://stackoverflow.com/questions/34968112/how-to-give-jupyter-cell-standard-input-in-python">https://stackoverflow.com/questions/34968112/how-to-give-jupyter-cell-standard-input-in-python</a></p>
 </section>
 </section>
 
@@ -4131,6 +4266,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abike
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx">53 <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 </ul>
   </nav></div>
 
