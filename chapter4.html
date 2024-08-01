@@ -571,6 +571,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
 </ul>
             </nav>
         </div>
@@ -3997,6 +3998,47 @@ This is an attention.
 [4] <a class="reference external" href="https://www.bmc.com/blogs/installing-jupyter-for-big-data-and-analytics/">https://www.bmc.com/blogs/installing-jupyter-for-big-data-and-analytics/</a><br />
 [5] <a class="reference external" href="https://stackoverflow.com/questions/34968112/how-to-give-jupyter-cell-standard-input-in-python">https://stackoverflow.com/questions/34968112/how-to-give-jupyter-cell-standard-input-in-python</a></p>
 </section>
+<section id="clear-dirs-sh-update">
+<h2>57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update<a class="headerlink" href="#clear-dirs-sh-update" title="Permalink to this heading">#</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Ask for the directory to change to</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Enter the directory to change to (relative to ~/documents):&quot;</span>
+<span class="nb">read</span><span class="w"> </span>dir
+
+<span class="c1"># Change to the specified directory</span>
+<span class="nb">cd</span><span class="w"> </span>~/documents/<span class="s2">&quot;</span><span class="nv">$dir</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Directory not found&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># Loop through all items in the directory</span>
+<span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span>*<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># Check if the item is a directory and not &quot;kitabo&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;kitabo&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$item</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">[</span><span class="m">1</span>-6<span class="o">]</span>-.*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c1"># Remove the directory and its contents</span>
+<span class="w">            </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted directory </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c1"># Check if the file should be deleted</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$item</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>_file*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span>rm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted file </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$item</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*.*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$item</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>^<span class="o">[</span><span class="m">1</span>-6<span class="o">]</span>-.*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span>rm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted file </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span>rm<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted file </span><span class="nv">$item</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Finished deleting directory contents&quot;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -4249,6 +4291,7 @@ This is an attention.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsrt">54 <code class="docutils literal notranslate"><span class="pre">unsrt</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
 </ul>
   </nav></div>
 
