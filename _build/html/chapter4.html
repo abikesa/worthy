@@ -572,6 +572,17 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-figures-image">58. <code class="docutils literal notranslate"><span class="pre">{figure}</span> <span class="pre">../figures/image.*</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-customization">Advanced Customization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-directive-example">Custom Directive Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -3788,6 +3799,15 @@ Once FFmpeg is installed, you can use it to convert your file:</p>
 Ensure that the new .mp3 file has been created in the same directory (and in the <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> extension as well).</p></li>
 </ol>
 <p>This should resolve the issue, allowing you to convert your audio files and embed them in your Jupyter Book successfully.</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Embed your files</strong></p></li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">audio</span> <span class="na">controls</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../media/ii-v-I.mp3&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;audio/mp3&quot;</span><span class="p">&gt;</span>
+  Your browser does not support the audio element.
+<span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="sphinx">
@@ -3989,6 +4009,12 @@ This is an attention.
 </pre></div>
 </div>
 </li>
+<li><p><strong>Admonition</strong>:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition}
+This is an admonition.
+</pre></div>
+</div>
+</li>
 </ol>
 <p>These directives help in organizing and emphasizing content in Jupyter Books, making the information more accessible and visually distinct for readers[1].</p>
 <p>Citations:<br />
@@ -4038,6 +4064,117 @@ This is an attention.
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Finished deleting directory contents&quot;</span>
 </pre></div>
 </div>
+</section>
+<section id="figure-figures-image">
+<h2>58. <code class="docutils literal notranslate"><span class="pre">{figure}</span> <span class="pre">../figures/image.*</span></code><a class="headerlink" href="#figure-figures-image" title="Permalink to this heading">#</a></h2>
+<p>To adapt the <code class="docutils literal notranslate"><span class="pre">figure</span></code> directive in Jupyter Book to include different types of media and ensure appropriate labeling, you can use custom directives and captions. Here’s a way to distinguish different media types such as audio, video, and images:</p>
+<ol class="arabic simple">
+<li><p><strong>Images</strong>: Continue using the <code class="docutils literal notranslate"><span class="pre">figure</span></code> directive for traditional images.</p></li>
+<li><p><strong>Audio and Video</strong>: Create custom directives or use the <code class="docutils literal notranslate"><span class="pre">embed</span></code> directive provided by MyST.</p></li>
+</ol>
+<section id="adapting-for-images">
+<h3>Adapting for Images<a class="headerlink" href="#adapting-for-images" title="Permalink to this heading">#</a></h3>
+<p>For images, you can continue using the <code class="docutils literal notranslate"><span class="pre">figure</span></code> directive as you normally would:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">```{figure} /path/to/image.png</span>
+<span class="gu">---</span>
+<span class="gu">name: fig:my_image</span>
+<span class="gu">---</span>
+This is an image.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### Custom Directives for Audio and Video
+
+For audio and video, you can use HTML or the `embed` directive to properly integrate and label these media types:
+
+#### Audio
+
+To include audio with proper labeling, use HTML and MyST capabilities to create a custom caption:
+
+```markdown
+```{admonition} Audio 1: My Audio Description
+:class: note
+</pre></div>
+</div>
+<audio controls>
+  <source src="/path/to/audio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+```
+```
+<section id="video">
+<h4>Video<a class="headerlink" href="#video" title="Permalink to this heading">#</a></h4>
+<p>For video, you can do something similar:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} Video 1: My Video Description
+:class: note
+</pre></div>
+</div>
+<video width="320" height="240" controls>
+  <source src="/path/to/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+```
+```
+</section>
+</section>
+<section id="advanced-customization">
+<h3>Advanced Customization<a class="headerlink" href="#advanced-customization" title="Permalink to this heading">#</a></h3>
+<p>If you prefer a more structured approach, you can define custom roles or directives in MyST to handle different media types. This allows for consistent styling and automated numbering.</p>
+<section id="custom-directive-example">
+<h4>Custom Directive Example<a class="headerlink" href="#custom-directive-example" title="Permalink to this heading">#</a></h4>
+<p>You can define a custom directive in your <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> or use Sphinx extensions:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sphinx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">myst_enable_extensions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colon_fence</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html_admonition</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html_image</span>
+</pre></div>
+</div>
+<p>And then in your markdown file:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>::::{grid} 1 2 2 3
+:gutter: 3
+
+:::{grid-item-card}
+```{admonition} Audio 1: My Audio Description
+:class: note
+</pre></div>
+</div>
+<audio controls>
+  <source src="/path/to/audio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+:::
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<video width="320" height="240" controls>
+  <source src="/path/to/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+<div class="docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### Summary
+
+By using custom captions with HTML or MyST directives, you can clearly distinguish between different types of media in your Jupyter Book. This approach ensures your content is accessible and correctly labeled, enhancing the user experience with modern media integrations.
+
+## 59. `jb_build.sh &amp;&amp; cp -r dir/*` 
+
+Beyond figures in books: supporting multimodal aids to dynamic content
+
+```sh
+mkdir -p _build/html/pdfs _build/html/figures _build/html/media
+cp -r pdfs/* _build/html/pdfs/
+cp -r media/* _build/html/media/
+cp -r act1/app/* _build/html/act1/app
+</pre></div>
+</div>
+</div>
+</section>
+</section>
 </section>
 </section>
 
@@ -4292,6 +4429,17 @@ This is an attention.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template-sh">55 <code class="docutils literal notranslate"><span class="pre">template.sh</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-figures-image">58. <code class="docutils literal notranslate"><span class="pre">{figure}</span> <span class="pre">../figures/image.*</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-customization">Advanced Customization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-directive-example">Custom Directive Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
