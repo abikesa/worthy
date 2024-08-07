@@ -573,7 +573,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-figures-image">58. <code class="docutils literal notranslate"><span class="pre">{figure}</span> <span class="pre">../figures/image.*</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-directives-for-audio-and-video">Custom Directives for Audio and Video</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#audio">Audio</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a></li>
 </ul>
 </li>
@@ -4082,17 +4084,14 @@ This is an admonition.
 This is an image.
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-### Custom Directives for Audio and Video
-
-For audio and video, you can use HTML or the `embed` directive to properly integrate and label these media types:
-
-#### Audio
-
-To include audio with proper labeling, use HTML and MyST capabilities to create a custom caption:
-
-```markdown
-```{admonition} Audio 1: My Audio Description
+</section>
+<section id="custom-directives-for-audio-and-video">
+<h3>Custom Directives for Audio and Video<a class="headerlink" href="#custom-directives-for-audio-and-video" title="Permalink to this heading">#</a></h3>
+<p>For audio and video, you can use HTML or the <code class="docutils literal notranslate"><span class="pre">embed</span></code> directive to properly integrate and label these media types:</p>
+<section id="audio">
+<h4>Audio<a class="headerlink" href="#audio" title="Permalink to this heading">#</a></h4>
+<p>To include audio with proper labeling, use HTML and MyST capabilities to create a custom caption:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} Audio 1: My Audio Description
 :class: note
 </pre></div>
 </div>
@@ -4102,6 +4101,7 @@ To include audio with proper labeling, use HTML and MyST capabilities to create 
 </audio>
 ```
 ```
+</section>
 <section id="video">
 <h4>Video<a class="headerlink" href="#video" title="Permalink to this heading">#</a></h4>
 <p>For video, you can do something similar:</p>
@@ -4430,7 +4430,9 @@ cp -r act1/app/* _build/html/act1/app
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perplexity-ai">56 <code class="docutils literal notranslate"><span class="pre">perplexity.ai</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clear-dirs-sh-update">57 <code class="docutils literal notranslate"><span class="pre">clear_dirs.sh</span></code> update</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure-figures-image">58. <code class="docutils literal notranslate"><span class="pre">{figure}</span> <span class="pre">../figures/image.*</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-for-images">Adapting for Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-directives-for-audio-and-video">Custom Directives for Audio and Video</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#audio">Audio</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#video">Video</a></li>
 </ul>
 </li>
