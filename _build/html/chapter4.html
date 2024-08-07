@@ -4099,8 +4099,6 @@ This is an image.
   <source src="/path/to/audio.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-```
-```
 </section>
 <section id="video">
 <h4>Video<a class="headerlink" href="#video" title="Permalink to this heading">#</a></h4>
@@ -4113,8 +4111,6 @@ This is an image.
   <source src="/path/to/video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-```
-```
 </section>
 </section>
 <section id="advanced-customization">
@@ -4144,7 +4140,7 @@ This is an image.
   <source src="/path/to/audio.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-:::
+<div class="docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -4155,21 +4151,16 @@ This is an image.
 </div>
 </div>
 </div>
+</div>
 <div class="docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-### Summary
-
-By using custom captions with HTML or MyST directives, you can clearly distinguish between different types of media in your Jupyter Book. This approach ensures your content is accessible and correctly labeled, enhancing the user experience with modern media integrations.
-
-## 59. `jb_build.sh &amp;&amp; cp -r dir/*` 
-
-Beyond figures in books: supporting multimodal aids to dynamic content
-
-```sh
-mkdir -p _build/html/pdfs _build/html/figures _build/html/media
-cp -r pdfs/* _build/html/pdfs/
-cp -r media/* _build/html/media/
-cp -r act1/app/* _build/html/act1/app
+<h3 class="rubric" id="id14">Summary</h3>
+<p>By using custom captions with HTML or MyST directives, you can clearly distinguish between different types of media in your Jupyter Book. This approach ensures your content is accessible and correctly labeled, enhancing the user experience with modern media integrations.</p>
+<h2 class="rubric" id="jb-build-sh-cp-r-dir">59. <code class="docutils literal notranslate"><span class="pre">jb_build.sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">dir/*</span></code></h2>
+<p>Beyond figures in books: supporting multimodal aids to dynamic content</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>_build/html/pdfs<span class="w"> </span>_build/html/figures<span class="w"> </span>_build/html/media
+cp<span class="w"> </span>-r<span class="w"> </span>pdfs/*<span class="w"> </span>_build/html/pdfs/
+cp<span class="w"> </span>-r<span class="w"> </span>media/*<span class="w"> </span>_build/html/media/
+cp<span class="w"> </span>-r<span class="w"> </span>act1/app/*<span class="w"> </span>_build/html/act1/app
 </pre></div>
 </div>
 </div>
