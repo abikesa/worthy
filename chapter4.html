@@ -4321,6 +4321,62 @@ cp<span class="w"> </span>-r<span class="w"> </span>act1/app/*<span class="w"> <
 <li><p><strong>SendGrid:</strong> If using email, you can get an API key from <a class="reference external" href="https://sendgrid.com/">SendGrid</a>.</p></li>
 </ul>
 <p>You can paste this code into a Jupyter Notebook or a Python script, depending on the method you choose. Let me know which approach you prefer, or if you want to explore another option!</p>
+<h2 class="rubric" id="scrape">62 <code class="docutils literal notranslate"><span class="pre">scrape</span></code></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">youtube_comment_downloader</span> <span class="kn">import</span> <span class="n">YoutubeCommentDownloader</span>
+
+<span class="c1"># Initialize the downloader</span>
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">YoutubeCommentDownloader</span><span class="p">()</span>
+
+<span class="c1"># Replace with your YouTube video ID</span>
+<span class="n">video_id</span> <span class="o">=</span> <span class="s1">&#39;VtQorLzzbQw&#39;</span>
+
+<span class="c1"># Get comments from the video</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">downloader</span><span class="o">.</span><span class="n">get_comments_from_url</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://www.youtube.com/watch?v=</span><span class="si">{</span><span class="n">video_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Print comments</span>
+<span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">comment</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             1. Modes
+                     \
+           2. GPT -&gt; 4. Latency.Attention -&gt; 5. Unveiled -&gt; 6. Bespoke
+                     /
+                     3. Reinforcement.Feedback
+</pre></div>
+</div>
+<h3 class="rubric" id="modes">1 Modes</h3>
+<ul class="simple">
+<li><p>PAIRS&#64;JH as “Eyes” &amp; data-collection</p></li>
+<li><p>YouTube comments (i.e., text)</p></li>
+<li><p>Save as .PDF</p></li>
+</ul>
+<h3 class="rubric" id="gpt">2 GPT</h3>
+<ul class="simple">
+<li><p>Upload into GPT-4o for thematic analysis</p></li>
+</ul>
+<h3 class="rubric" id="reinforcement">3 Reinforcement</h3>
+<ul class="simple">
+<li><p>Music: phonetics, temperament, scales, MQ-TEA, nexToken, ENTarcs</p></li>
+<li><p>e.g. phrygian mode, flamenco element, arpeggio, trochaic meter for “im-per-fect-for-you”: E-<code class="docutils literal notranslate"><span class="pre">F-A-C</span></code>-B</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F-A-C</span></code> insertion/substitue of 3rd (i.e. G♯)</p></li>
+<li><p>“Dominant” function &amp; lyric-syntactic-semantic consonance of “imperfect” sonic elements</p></li>
+</ul>
+<h3 class="rubric" id="attention">4 Attention</h3>
+<ul class="simple">
+<li><p>Attention to Gypsies: India-Persia-Arabia-North.Africa-Spain: Andalusia-Flamenco</p></li>
+<li><p>We have spanish phrygian elements even phonetically in the openning guitar &amp; implied rhythm without accent</p></li>
+<li><p>Ommitted is the performance, dance, &amp; audience support with syncopated claps</p></li>
+</ul>
+<h3 class="rubric" id="unveiled">5 Unveiled</h3>
+<ul class="simple">
+<li><p>Secret behind every listeners emotional response</p></li>
+</ul>
+<h3 class="rubric" id="bespoke">6 Bespoke</h3>
+<ul class="simple">
+<li><p>Very personal for me since vocabulary is key element</p></li>
+<li><p>Particularly for language-memory-intelligence-prediction-anticipation-feedback</p></li>
+</ul>
 </div>
 </section>
 </section>
