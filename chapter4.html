@@ -4321,7 +4321,7 @@ cp<span class="w"> </span>-r<span class="w"> </span>act1/app/*<span class="w"> <
 <li><p><strong>SendGrid:</strong> If using email, you can get an API key from <a class="reference external" href="https://sendgrid.com/">SendGrid</a>.</p></li>
 </ul>
 <p>You can paste this code into a Jupyter Notebook or a Python script, depending on the method you choose. Let me know which approach you prefer, or if you want to explore another option!</p>
-<h2 class="rubric" id="scrape">62 <code class="docutils literal notranslate"><span class="pre">scrape</span></code></h2>
+<h2 class="rubric" id="scrape-youtube">62 <code class="docutils literal notranslate"><span class="pre">scrape</span></code> YouTube</h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">youtube_comment_downloader</span> <span class="kn">import</span> <span class="n">YoutubeCommentDownloader</span>
 
 <span class="c1"># Initialize the downloader</span>
@@ -4381,6 +4381,33 @@ cp<span class="w"> </span>-r<span class="w"> </span>act1/app/*<span class="w"> <
 <li><p>Very personal for me since vocabulary is key element</p></li>
 <li><p>Particularly for language-memory-intelligence-prediction-anticipation-feedback</p></li>
 </ul>
+<h2 class="rubric" id="beautifulsoup">62 <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># Replace with the URL you want to scrape</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.newyorker.com/culture/cultural-comment/blank-space-what-kind-of-genius-is-max-martin&#39;</span>
+
+<span class="c1"># Send a request to the website</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># Check if the request was successful</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Example: Find all paragraphs</span>
+    <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to retrieve the webpage. Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But, while knowing English is clearly an advantage to songwriters and producers seeking success in the U.S. and the U.K., a lack of facility with the finer points of the language is equally important. Swedish writers are not partial to wit, metaphor, or double entendre, songwriting staples from Tin Pan Alley through the Brill Building era. They are more inclined to fit the syllables to the sounds—a working method that Martin calls “melodic math”—and not worry too much about whether the resulting lines make sense. (The verses in “I Want It That Way,” for example, completely contradict the meaning of the chorus lines.) Fans of <code class="docutils literal notranslate"><span class="pre">Cole</span> <span class="pre">Porter</span></code> may see this development in roughly in the same spirit that “Downton Abbey” fans might view “Keeping Up with the Kardashians”—with horror—but one can argue that this very freedom from having to make sense lyrically has allowed the Swedes to soar to such melodic heights.</p>
+<p>Finally, while Sweden has a strong songwriting culture, it lacks an equally strong culture of performing. Klas Åhlund, a successful Swedish songwriter and producer in his forties, who is also a performer (in the rock band Teddybears), told me, “Swedes are very musical, and they love to write songs. But it’s a big country, and it has very few people in it. <code class="docutils literal notranslate"><span class="pre">So</span> <span class="pre">you</span> <span class="pre">had</span> <span class="pre">these</span> <span class="pre">farmers</span> <span class="pre">out</span> <span class="pre">there</span></code> who were good at writing songs but had no one to sing them. Songwriting was just a thing you did on your own when you were watching the cows, a kind of meditation. You didn’t focus as much on your ability as a performer as you did on the structure and craft of the songs. Which is really not the case in the U.S., where your charm and your voice and your powers as a performer come immediately into play.”</p>
+<p>A nation of songwriters endowed with melodic gifts, meticulous about craft but reluctant to perform their own songs, is a potential goldmine for a nation of wannabe pop stars who don’t write their own material, which is often the case in the U.S. By hooking up the two countries, musically speaking, Martin and his peers changed pop songwriting.</p>
+<p>Martin’s legacy must be measured not only by the number of hits that he and his Swedish colleagues have created but also by the songwriting methods that they have instilled around the world. (Many K-pop songs are the result of collaborations between Korean and Swedish songwriting teams.) A strong part of Denniz PoP’s vision for Cheiron was that songwriting should be a collaborative effort; no one was supposed to be proprietary about his work, and Martin has passed these principles on to two generations of songwriters. Songwriters are assigned different parts of a song to work on; choruses can be taken from one song and tried in another; a bridge might be swapped out, or a hook. Songs are written more like television shows, by teams of writers who willingly share credit. In a Swedish TV documentary called “The Nineties,” E-Type describes the working conditions at Denniz PoP’s studio. “<code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">get</span> <span class="pre">this</span> <span class="pre">feeling</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">big</span> <span class="pre">painter’s</span> <span class="pre">studio</span> <span class="pre">in</span> <span class="pre">Italy,</span> <span class="pre">back</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">fourteen-hundreds</span> <span class="pre">or</span> <span class="pre">fifteen-hundreds</span></code>. One assistant does the hands, another does the feet, and another does something else, and then Michelangelo walks in and says, ‘That’s really great; just turn it slightly. Now it’s good; put it in a golden frame, and out with it. Next!’ ” The description might apply equally well to Martin’s home studio, in Los Angeles (Frank Sinatra once lived there, and he sublet the pool house to Marilyn Monroe), where he is now the master.</p>
 </div>
 </section>
 </section>
