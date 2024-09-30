@@ -4424,6 +4424,34 @@ cp<span class="w"> </span>-r<span class="w"> </span>act1/app/*<span class="w"> <
 `
 </pre></div>
 </div>
+<h2 class="rubric" id="zipfile">64 <code class="docutils literal notranslate"><span class="pre">zipfile</span></code></h2>
+<p>Ask GPT-4o to edit a jb hosted by GitHub!</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Function to compress files into a zip archive</span>
+<span class="k">def</span> <span class="nf">compress_to_zip</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipf</span><span class="p">:</span>
+        <span class="c1"># Walk the directory and add files</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">folder_path</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+                <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">folder_path</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Adding </span><span class="si">{</span><span class="n">relative_path</span><span class="si">}</span><span class="s2"> to zip.&quot;</span><span class="p">)</span>  <span class="c1"># Print for debugging</span>
+                <span class="n">zipf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">relative_path</span><span class="p">)</span>
+
+<span class="c1"># Define the folder path and output zip file</span>
+<span class="n">clone_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/documents/rhythm/workflow&#39;</span><span class="p">)</span>  <span class="c1"># Convert to absolute path</span>
+<span class="n">output_zip</span> <span class="o">=</span> <span class="s1">&#39;workflow_compressed.zip&#39;</span>  <span class="c1"># Name of the output zip file</span>
+
+<span class="c1"># Check if the folder has files</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">clone_dir</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory is empty!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">compress_to_zip</span><span class="p">(</span><span class="n">output_zip</span><span class="p">,</span> <span class="n">clone_dir</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compressed repository into </span><span class="si">{</span><span class="n">output_zip</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>
