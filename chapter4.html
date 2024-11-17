@@ -4565,6 +4565,56 @@ Melancholy (past)
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<h2 class="rubric" id="id16">70 Video</h2>
+<p>To display video files instead of audio files, you’ll need to use the <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag with appropriate controls. Here’s the corrected version of your code:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_1.MP4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+  Your browser does not support the video element.
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_2.MP4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+  Your browser does not support the video element.
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_3.MP4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+  Your browser does not support the video element.
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<h3 class="rubric" id="id17">Explanation:</h3>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> Tag:</strong> Replaced <code class="docutils literal notranslate"><span class="pre">&lt;audio&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> to accommodate video files.</p></li>
+<li><p><strong>File Type:</strong> Changed <code class="docutils literal notranslate"><span class="pre">type=&quot;audio/mp3&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">type=&quot;video/mp4&quot;</span></code>.</p></li>
+<li><p><strong>Controls:</strong> Retained the <code class="docutils literal notranslate"><span class="pre">controls</span></code> attribute to provide a playback interface.</p></li>
+<li><p><strong>Style:</strong> Kept the <code class="docutils literal notranslate"><span class="pre">style=&quot;width:</span> <span class="pre">100%;&quot;</span></code> for responsive design.</p></li>
+</ol>
+<p>This ensures the videos will display properly and provide playback controls.</p>
+<hr class="docutils" />
+<p>If you’re embedding external video files (e.g., from a website or local server), you <strong>can</strong> use an <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> tag, but it’s typically reserved for embedding content from other web pages (like YouTube or Vimeo). For standalone videos hosted locally or on your own server, <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> is the <strong>correct and standard HTML5 element</strong> to use.</p>
+<p>Here’s why <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> is preferred for self-hosted files:</p>
+<ol class="arabic simple">
+<li><p><strong>Direct Playback</strong>: The <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> element provides built-in controls for playing video files directly in the browser.</p></li>
+<li><p><strong>Simpler Setup</strong>: Unlike <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code>, you don’t need additional HTML or JavaScript to ensure the correct functionality of embedded content.</p></li>
+</ol>
+<p>That said, if you want to use an <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> (e.g., for embedding a pre-configured media player or special use cases), here’s how it would look:</p>
+<h3 class="rubric" id="using-iframe">Using <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code>:</h3>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_1.MP4&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; height: 500px;&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_2.MP4&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; height: 500px;&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../media/contrail_3.MP4&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; height: 500px;&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<h3 class="rubric" id="key-differences">Key Differences:</h3>
+<ol class="arabic simple">
+<li><p><strong>Customization</strong>: The <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag gives more control over playback features (like custom styling, captions, etc.).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> Use Case</strong>: Best for embedding third-party-hosted videos, not for local/self-hosted media.</p></li>
+</ol>
+<p>For <strong>locally hosted files</strong>, stick with <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code>. Use <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> only if you’re embedding from another platform or need additional functionality that the <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag doesn’t natively support.</p>
+<hr class="docutils" />
+<p>Great! Let me know if you need help tweaking the <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag setup or experimenting with <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> for any specific scenarios. Happy coding! 🚀</p>
 </div>
 </section>
 </section>
