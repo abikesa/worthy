@@ -4615,6 +4615,31 @@ Melancholy (past)
 <p>For <strong>locally hosted files</strong>, stick with <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code>. Use <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> only if you’re embedding from another platform or need additional functionality that the <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag doesn’t natively support.</p>
 <hr class="docutils" />
 <p>Great! Let me know if you need help tweaking the <code class="docutils literal notranslate"><span class="pre">&lt;video&gt;</span></code> tag setup or experimenting with <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> for any specific scenarios. Happy coding! 🚀</p>
+<h2 class="rubric" id="heic">71 .HEIC</h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Define the source directory</span>
+<span class="nv">SOURCE_DIR</span><span class="o">=</span>~/desktop
+<span class="nv">OUTPUT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SOURCE_DIR</span><span class="s2">/converted_jpegs&quot;</span>
+
+<span class="c1"># Create the output directory if it doesn&#39;t exist</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_DIR</span><span class="s2">&quot;</span>
+
+<span class="c1"># Loop through all .heic files and convert them to .jpeg</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SOURCE_DIR</span><span class="s2">&quot;</span>/*.HEIC<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename<span class="w"> </span>--<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="w">        </span><span class="nv">output_filename</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">.jpeg&quot;</span>
+<span class="w">        </span><span class="nv">output_path</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$OUTPUT_DIR</span><span class="s2">/</span><span class="nv">$output_filename</span><span class="s2">&quot;</span>
+
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Converting </span><span class="nv">$file</span><span class="s2"> to </span><span class="nv">$output_path</span><span class="s2">...&quot;</span>
+<span class="w">        </span>convert<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$output_path</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;All .heic files have been converted to .jpeg in </span><span class="nv">$OUTPUT_DIR</span><span class="s2">.&quot;</span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>
