@@ -4640,6 +4640,60 @@ mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;All .heic files have been converted to .jpeg in </span><span class="nv">$OUTPUT_DIR</span><span class="s2">.&quot;</span>
 </pre></div>
 </div>
+<ol class="arabic simple" start="72">
+<li><p>Webkit-Details-Marker</p></li>
+</ol>
+<p>Yes, you can achieve this by adding CSS to style the <code class="docutils literal notranslate"><span class="pre">&lt;summary&gt;</span></code> element. Here’s how to implement:</p>
+<ol class="arabic simple">
+<li><p><strong>Dotted Circle Around <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Expand</span></code></strong>: Use <code class="docutils literal notranslate"><span class="pre">border</span></code> with <code class="docutils literal notranslate"><span class="pre">dotted</span></code> style and <code class="docutils literal notranslate"><span class="pre">border-radius</span></code> for a circular effect.</p></li>
+<li><p><strong>Hover Effect (Light Gray Text)</strong>: Use <code class="docutils literal notranslate"><span class="pre">:hover</span></code> to change the text color when hovering.</p></li>
+</ol>
+<h3 class="rubric" id="updated-code"><strong>Updated Code:</strong></h3>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="c">/* Apply styles only to elements with the custom class */</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">custom-details</span><span class="w"> </span><span class="nt">summary</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">list-style</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w">  </span><span class="c">/* Remove default dropdown triangle */</span>
+<span class="w">    </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span><span class="w"> </span><span class="c">/* Normal text weight */</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="kc">dotted</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span><span class="w"> </span><span class="c">/* Dotted circle */</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Make it rounded */</span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="kc">color</span><span class="w"> </span><span class="mf">0.3</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease-in-out</span><span class="p">;</span><span class="w"> </span><span class="c">/* Smooth transition */</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">.</span><span class="nc">custom-details</span><span class="w"> </span><span class="nt">summary</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">lightgray</span><span class="p">;</span><span class="w"> </span><span class="c">/* Change text color on hover */</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="p">.</span><span class="nc">custom-details</span><span class="w"> </span><span class="nt">summary</span><span class="p">::</span><span class="nd">-webkit-details-marker</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* Remove marker in WebKit (Chrome, Safari) */</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">details</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;custom-details&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">summary</span><span class="p">&gt;</span>+ Expand<span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is the expanded content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;DOMContentLoaded&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.custom-details&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">details</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;summary&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">details</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;toggle&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">summary</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">details</span><span class="p">.</span><span class="nx">open</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;- Collapse&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;+ Expand&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<h3 class="rubric" id="effects-implemented"><strong>Effects Implemented:</strong></h3>
+<p>✅ <strong>Dotted border around <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Expand</span></code></strong> (giving it a circular feel)<br />
+✅ <strong>Text turns light gray on hover</strong><br />
+✅ <strong>Smooth transition for color changes</strong></p>
+<p>This should give a clean, interactive experience. Let me know if you want further tweaks! 🚀</p>
 </div>
 </section>
 </section>
