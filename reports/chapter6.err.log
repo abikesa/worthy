@@ -1,0 +1,80 @@
+Traceback (most recent call last):
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.11/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/apollo/Documents/Rhythm/myenv/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+
+# Define the text with the word translations for "Hello"
+text = """Hello Hi Salut Bonjour Hallo Ola Ciao Hola Guten Tag Saluton Kamusta Merhaba Здравствуйте Elo Aloha Terve
+          Opa Вітаю 오늘은 Ciau 今日は سلام Здрасти 你好 سلامة"""
+
+# Define the word frequencies if specific sizes are required
+word_freqs = {
+    "Kodh'eyo": 20,
+    "Hi": 8,
+    "Salut": 7,
+    "Bonjour": 7,
+    "Hallo": 6,
+    "Ola": 6,
+    "Ciao": 5,
+    "Hola": 5,
+    "Guten Tag": 4,
+    "Saluton": 4,
+    "Kamusta": 4,
+    "Merhaba": 3,
+    "Здравствуйте": 3,
+    "Elo": 3,
+    "Aloha": 3,
+    "Terve": 3,
+    "Opa": 2,
+    "Вітаю": 2,
+    "오늘은": 2,
+    "Ciau": 2,
+    "今日は": 2,
+    "سلام": 2,
+    "Здрасти": 4,
+    "你好": 2,
+    "سلامة": 2
+}
+
+# Create the word cloud object
+wordcloud = WordCloud(width=1000, height=800, background_color='white', relative_scaling=0.5,
+                      colormap='viridis', collocations=False).generate_from_frequencies(word_freqs)
+
+# Plot the word cloud
+plt.figure(figsize=(10, 5))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.show()
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
+[32m----> [39m[32m2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mwordcloud[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m WordCloud
+[32m      4[39m [38;5;66;03m# Define the text with the word translations for "Hello"[39;00m
+[32m      5[39m text = [33m"""[39m[33mHello Hi Salut Bonjour Hallo Ola Ciao Hola Guten Tag Saluton Kamusta Merhaba Здравствуйте Elo Aloha Terve[39m
+[32m      6[39m [33m          Opa Вітаю 오늘은 Ciau 今日は سلام Здрасти 你好 سلامة[39m[33m"""[39m
+
+[31mModuleNotFoundError[39m: No module named 'wordcloud'
+
